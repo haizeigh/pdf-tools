@@ -12,18 +12,18 @@ export function HomePage() {
   return (
     <div>
       {/* Hero */}
-      <section className="text-center py-16 sm:py-24">
-        <div className="inline-flex items-center gap-2 bg-brand-50 text-brand-700 text-sm font-medium px-4 py-1.5 rounded-full mb-6">
-          <FileText className="w-4 h-4" />
-          Free online PDF tools
+      <section className="text-center py-12 sm:py-16">
+        <div className="inline-flex items-center gap-2 bg-green-50 text-green-700 text-sm font-medium px-4 py-1.5 rounded-full mb-5">
+          <Shield className="w-4 h-4" />
+          Runs in your browser · Nothing is uploaded
         </div>
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-surface-900 font-[family-name:var(--font-display)] leading-tight tracking-tight">
-          PDF tools that
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-surface-900 font-[family-name:var(--font-display)] leading-tight tracking-tight">
+          Free PDF tools that
           <br />
-          <span className="text-brand-600">just work</span>
+          <span className="text-brand-600">respect your privacy</span>
         </h1>
-        <p className="mt-4 text-lg text-surface-500 max-w-xl mx-auto">
-          Merge, compress, convert, and split PDFs — all in your browser. No uploads, no signups, no limits.
+        <p className="mt-3 text-base text-surface-500 max-w-xl mx-auto">
+          Merge, compress, convert, split, delete, protect, and rotate PDFs — all locally in your browser. No uploads, no signups, no limits. Your files never leave your device.
         </p>
       </section>
 

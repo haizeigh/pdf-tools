@@ -6,9 +6,13 @@ export function Footer() {
           <p className="text-sm text-surface-400">
             All processing happens in your browser. Files never leave your device.
           </p>
-          <p className="text-sm text-surface-400">
-            PDFCraft &mdash; Free online PDF tools
-          </p>
+          <div className="flex items-center gap-4 text-sm text-surface-400">
+            <a href="mailto:support@aixiaot.com" className="hover:text-brand-600 transition-colors">
+              support@aixiaot.com
+            </a>
+            <span className="text-surface-300">·</span>
+            <span>PDFCraft &mdash; Free online PDF tools</span>
+          </div>
         </div>
       </div>
     </footer>

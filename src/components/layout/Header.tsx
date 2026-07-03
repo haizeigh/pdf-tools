@@ -1,4 +1,4 @@
-import { FileText } from 'lucide-react';
+import { FileText, Mail } from 'lucide-react';
 
 export function Header() {
   return (
@@ -14,6 +14,10 @@ export function Header() {
             </span>
           </a>
           <div className="flex items-center gap-4">
+            <a href="mailto:support@aixiaot.com" className="hidden sm:inline-flex items-center gap-1 text-xs text-surface-400 hover:text-brand-600 transition-colors">
+              <Mail className="w-3.5 h-3.5" />
+              support@aixiaot.com
+            </a>
             <span className="hidden sm:inline text-xs text-surface-400 bg-surface-100 px-3 py-1.5 rounded-full font-medium">
               Free · No limits · No signup
             </span>
