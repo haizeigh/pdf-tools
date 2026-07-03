@@ -28,11 +28,19 @@ export function HomePage() {
       </section>
 
       {/* Tools Grid */}
-      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pb-16">
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pb-8">
         {tools.map((tool) => (
           <ToolCard key={tool.id} tool={tool} />
         ))}
       </section>
+
+      {/* Blog link */}
+      <div className="text-center pb-12">
+        <a href="/blog" className="inline-flex items-center gap-2 text-sm text-surface-500 hover:text-brand-600 transition-colors">
+          <FileText className="w-4 h-4" />
+          Browse our PDF guides & tutorials →
+        </a>
+      </div>
 
       {/* Features */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-20">
