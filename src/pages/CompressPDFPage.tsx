@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { FileDropZone } from '../components/features/FileDropZone';
 import { compressPDF, downloadBlob, formatFileSize } from '../utils/pdf';
+import { SchemaMarkup } from '../components/features/SchemaMarkup';
 import { Loader2, CheckCircle2, AlertCircle, ArrowLeft, Shrink } from 'lucide-react';
 
 export function CompressPDFPage() {
@@ -34,6 +35,7 @@ export function CompressPDFPage() {
 
   return (
     <div className="max-w-2xl mx-auto">
+      <SchemaMarkup name="Compress PDF" url="/compress-pdf" description="Reduce PDF file size online for free without losing quality." />
       <a href="/" className="inline-flex items-center gap-1.5 text-sm text-surface-500 hover:text-surface-700 mb-6 transition-colors">
         <ArrowLeft className="w-4 h-4" /> Back to tools
       </a>

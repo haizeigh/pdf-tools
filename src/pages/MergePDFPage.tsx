@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { FileDropZone } from '../components/features/FileDropZone';
 import { mergePDFs, downloadBlob, formatFileSize } from '../utils/pdf';
+import { SchemaMarkup } from '../components/features/SchemaMarkup';
 import { Loader2, CheckCircle2, AlertCircle, ArrowLeft } from 'lucide-react';
 
 export function MergePDFPage() {
@@ -25,6 +26,7 @@ export function MergePDFPage() {
 
   return (
     <div className="max-w-2xl mx-auto">
+      <SchemaMarkup name="Merge PDF" url="/merge-pdf" description="Combine multiple PDF files into one document for free online." />
       <a href="/" className="inline-flex items-center gap-1.5 text-sm text-surface-500 hover:text-surface-700 mb-6 transition-colors">
         <ArrowLeft className="w-4 h-4" /> Back to tools
       </a>
