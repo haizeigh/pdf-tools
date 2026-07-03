@@ -177,11 +177,11 @@ export async function unlockPDF(file: File, password: string): Promise<Uint8Arra
 /**
  * Rotate all pages in a PDF
  */
-export async function rotatePDF(file: File, degrees: number): Promise<Uint8Array> {
+export async function rotatePDF(file: File, deg: number): Promise<Uint8Array> {
   const arrayBuffer = await file.arrayBuffer();
   const pdf = await PDFDocument.load(arrayBuffer);
   const pages = pdf.getPages();
-  const normalized = ((degrees % 360) + 360) % 360;
+  const normalized = ((deg % 360) + 360) % 360;
   // Valid rotation values: 0, 90, 180, 270
   const validAngles = [0, 90, 180, 270];
   const angle = validAngles.includes(normalized) ? normalized : 0;
