@@ -139,3 +139,51 @@ export function formatFileSize(bytes: number): string {
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
 }
+
+/**
+ * Delete specified pages from a PDF
+ */
+export async function deletePages(file: File, pagesToDelete: number[]): Promise<Uint8Array> {
+  const arrayBuffer = await file.arrayBuffer();
+  const pdf = await PDFDocument.load(arrayBuffer);
+  const pageCount = pdf.getPageCount();
+  const pagesToKeep = Array.from({ length: pageCount }, (_, i) => i)
+    .filter(i => !pagesToDelete.includes(i));
+  if (pagesToKeep.length === 0) throw new Error('Cannot delete all pages');
+  const newPdf = await PDFDocument.create();
+  const pages = await newPdf.copyPages(pdf, pagesToKeep);
+  pages.forEach(p => newPdf.addPage(p));
+  return newPdf.save();
+}
+
+/**
+ * Protect a PDF with a password
+ */
+export async function protectPDF(file: File, password: string): Promise<Uint8Array> {
+  const arrayBuffer = await file.arrayBuffer();
+  const pdf = await PDFDocument.load(arrayBuffer);
+  return pdf.save({ userPassword: password, ownerPassword: password } as any);
+}
+
+/**
+ * Unlock a password-protected PDF
+ */
+export async function unlockPDF(file: File, password: string): Promise<Uint8Array> {
+  const arrayBuffer = await file.arrayBuffer();
+  const pdf = await PDFDocument.load(arrayBuffer, { password } as any);
+  return pdf.save();
+}
+
+/**
+ * Rotate all pages in a PDF
+ */
+export async function rotatePDF(file: File, degrees: number): Promise<Uint8Array> {
+  const arrayBuffer = await file.arrayBuffer();
+  const pdf = await PDFDocument.load(arrayBuffer);
+  const pages = pdf.getPages();
+  pages.forEach(page => {
+    const current = page.getRotation().angle;
+    page.setRotation({ angle: (current + degrees) % 360 } as any);
+  });
+  return pdf.save();
+}

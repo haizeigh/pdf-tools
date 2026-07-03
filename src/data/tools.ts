@@ -1,4 +1,4 @@
-import { FileUp, FileDown, Merge, Split, Scan, FileImage, Shrink } from 'lucide-react';
+import { FileUp, FileDown, Merge, Split, Scan, FileImage, Shrink, Eraser, Lock, RotateCw } from 'lucide-react';
 import type { Tool } from '../types';
 
 export const tools: Tool[] = [
@@ -42,8 +42,32 @@ export const tools: Tool[] = [
     path: '/split-pdf',
     color: 'from-sky-500 to-blue-600',
   },
+  {
+    id: 'delete-pages',
+    name: 'Delete Pages',
+    description: 'Remove unwanted pages from your PDF',
+    icon: 'Eraser',
+    path: '/delete-pages',
+    color: 'from-red-500 to-rose-600',
+  },
+  {
+    id: 'protect-pdf',
+    name: 'Protect & Unlock PDF',
+    description: 'Add or remove password protection',
+    icon: 'Lock',
+    path: '/protect-pdf',
+    color: 'from-violet-500 to-purple-600',
+  },
+  {
+    id: 'rotate-pdf',
+    name: 'Rotate PDF',
+    description: 'Rotate pages 90°, 180°, or 270°',
+    icon: 'RotateCw',
+    path: '/rotate-pdf',
+    color: 'from-orange-500 to-amber-600',
+  },
 ];
 
 export const iconMap: Record<string, React.ComponentType<any>> = {
-  Merge, Split, Scan, FileImage, Shrink, FileUp, FileDown,
+  Merge, Split, Scan, FileImage, Shrink, FileUp, FileDown, Eraser, Lock, RotateCw,
 };

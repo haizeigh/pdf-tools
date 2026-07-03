@@ -7,6 +7,9 @@ import { CompressPDFPage } from './pages/CompressPDFPage';
 import { JpgToPDFPage } from './pages/JpgToPDFPage';
 import { PdfToJpgPage } from './pages/PdfToJpgPage';
 import { SplitPDFPage } from './pages/SplitPDFPage';
+import { DeletePagesPage } from './pages/DeletePagesPage';
+import { ProtectPDFPage } from './pages/ProtectPDFPage';
+import { RotatePDFPage } from './pages/RotatePDFPage';
 
 function App() {
   return (
@@ -21,6 +24,9 @@ function App() {
             <Route path="/jpg-to-pdf" element={<JpgToPDFPage />} />
             <Route path="/pdf-to-jpg" element={<PdfToJpgPage />} />
             <Route path="/split-pdf" element={<SplitPDFPage />} />
+            <Route path="/delete-pages" element={<DeletePagesPage />} />
+            <Route path="/protect-pdf" element={<ProtectPDFPage />} />
+            <Route path="/rotate-pdf" element={<RotatePDFPage />} />
           </Routes>
         </main>
         <Footer />
