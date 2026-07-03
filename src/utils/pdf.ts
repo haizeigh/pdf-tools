@@ -1,4 +1,4 @@
-import { PDFDocument } from 'pdf-lib';
+import { PDFDocument, degrees } from 'pdf-lib';
 
 /**
  * Merge multiple PDF files into one
@@ -182,8 +182,11 @@ export async function rotatePDF(file: File, degrees: number): Promise<Uint8Array
   const pdf = await PDFDocument.load(arrayBuffer);
   const pages = pdf.getPages();
   const normalized = ((degrees % 360) + 360) % 360;
+  // Valid rotation values: 0, 90, 180, 270
+  const validAngles = [0, 90, 180, 270];
+  const angle = validAngles.includes(normalized) ? normalized : 0;
   pages.forEach(page => {
-    page.setRotation({ angle: normalized } as any);
+    page.setRotation(degrees(angle));
   });
   return pdf.save();
 }
