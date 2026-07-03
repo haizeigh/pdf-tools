@@ -16,6 +16,7 @@ export function CompressPDFPage() {
 
   const handleProcess = async () => {
     if (!file) return;
+    gtag('event', 'tool_used', { tool_name: 'compress-pdf' });
     setOriginalSize(file.size);
     setStatus('processing');
     try {

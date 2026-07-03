@@ -10,6 +10,7 @@ export function JpgToPDFPage() {
 
   const handleProcess = async () => {
     if (files.length === 0) return;
+    gtag('event', 'tool_used', { tool_name: 'jpg-to-pdf' });
     setStatus('processing');
     try {
       const pdfBytes = await imagesToPDF(files);

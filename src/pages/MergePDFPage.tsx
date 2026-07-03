@@ -10,6 +10,7 @@ export function MergePDFPage() {
 
   const handleProcess = async () => {
     if (files.length < 2) return;
+    gtag('event', 'tool_used', { tool_name: 'merge-pdf' });
     setStatus('processing');
     try {
       const merged = await mergePDFs(files);

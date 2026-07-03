@@ -71,3 +71,6 @@ export const tools: Tool[] = [
 export const iconMap: Record<string, React.ComponentType<any>> = {
   Merge, Split, Scan, FileImage, Shrink, FileUp, FileDown, Eraser, Lock, RotateCw,
 };
+
+// Google Analytics gtag
+declare var gtag: (...args: any[]) => void;

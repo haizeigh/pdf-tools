@@ -29,6 +29,7 @@ export function DeletePagesPage() {
   const handleProcess = async () => {
     if (!file || selectedPages.length === 0) return;
     if (selectedPages.length >= pageCount) return;
+    gtag('event', 'tool_used', { tool_name: 'delete-pages' });
     setStatus('processing');
     try {
       const result = await deletePages(file, selectedPages);

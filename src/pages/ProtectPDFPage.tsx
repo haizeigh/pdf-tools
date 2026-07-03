@@ -26,6 +26,7 @@ export function ProtectPDFPage() {
       setErrorMsg('Passwords do not match');
       return;
     }
+    gtag('event', 'tool_used', { tool_name: 'protect-pdf' });
     setStatus('processing');
     setErrorMsg('');
     try {

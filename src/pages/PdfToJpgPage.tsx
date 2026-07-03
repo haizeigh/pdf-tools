@@ -15,6 +15,7 @@ export function PdfToJpgPage() {
 
   const handleProcess = async () => {
     if (!file) return;
+    gtag('event', 'tool_used', { tool_name: 'pdf-to-jpg' });
     setStatus('processing');
     try {
       const blobs = await pdfToImages(file);

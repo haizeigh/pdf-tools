@@ -15,6 +15,7 @@ export function SplitPDFPage() {
 
   const handleProcess = async () => {
     if (!file) return;
+    gtag('event', 'tool_used', { tool_name: 'split-pdf' });
     setStatus('processing');
     try {
       const pages = await splitPDF(file);
