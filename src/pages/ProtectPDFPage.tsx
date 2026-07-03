@@ -32,7 +32,11 @@ export function ProtectPDFPage() {
     try {
       let result: Uint8Array;
       if (mode === 'protect') {
-        result = await protectPDF(file, password);
+        // Use @pdfsmaller/pdf-encrypt-lite for browser-side encryption
+        const { encryptPDF } = await import('@pdfsmaller/pdf-encrypt-lite');
+        const arrayBuffer = await file.arrayBuffer();
+        const encrypted = await encryptPDF(new Uint8Array(arrayBuffer), password);
+        result = encrypted;
       } else {
         result = await unlockPDF(file, password);
       }
@@ -43,13 +47,7 @@ export function ProtectPDFPage() {
       downloadBlob(blob, `${prefix}-${file.name}`);
     } catch (e) {
       setStatus('error');
-      const msg = e instanceof Error ? e.message : 'Failed to process PDF';
-      // If protect mode fails, suggest the limitation
-      if (mode === 'protect') {
-        setErrorMsg('PDF password protection is not supported by the current library. Please use a desktop tool like Adobe Acrobat or qpdf for this feature.');
-      } else {
-        setErrorMsg(msg);
-      }
+      setErrorMsg(e instanceof Error ? e.message : 'Failed to process PDF');
     }
   };
 
@@ -103,12 +101,6 @@ export function ProtectPDFPage() {
               className="w-full px-4 py-2.5 rounded-xl border border-surface-200 bg-white text-surface-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent"
             />
           </div>
-
-          {mode === 'protect' && (
-            <div className="p-3 rounded-lg bg-amber-50 border border-amber-200 text-xs text-amber-700">
-              ⚠️ Password protection is not supported in the browser. This feature requires a desktop tool. Unlock mode is still available for password-protected PDFs.
-            </div>
-          )}
 
           {mode === 'protect' && (
             <div>
