@@ -52,8 +52,8 @@ export const tools: Tool[] = [
   },
   {
     id: 'protect-pdf',
-    name: 'Protect & Unlock PDF',
-    description: 'Add or remove password protection',
+    name: 'Protect PDF',
+    description: 'Add password protection to your PDF',
     icon: 'Lock',
     path: '/protect-pdf',
     color: 'from-violet-500 to-purple-600',
