@@ -22,7 +22,7 @@ export function RotatePDFPage() {
 
   const handleProcess = async () => {
     if (!file) return;
-    gtag('event', 'tool_used', { tool_name: 'rotate-pdf' });
+    try { gtag('event', 'tool_used', { tool_name: 'rotate-pdf' }); } catch {}
     setStatus('processing');
     try {
       const result = await rotatePDF(file, rotation);

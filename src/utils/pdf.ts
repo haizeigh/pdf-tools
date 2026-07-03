@@ -181,9 +181,9 @@ export async function rotatePDF(file: File, degrees: number): Promise<Uint8Array
   const arrayBuffer = await file.arrayBuffer();
   const pdf = await PDFDocument.load(arrayBuffer);
   const pages = pdf.getPages();
+  const normalized = ((degrees % 360) + 360) % 360;
   pages.forEach(page => {
-    const current = page.getRotation().angle;
-    page.setRotation({ angle: (current + degrees) % 360 } as any);
+    page.setRotation({ angle: normalized } as any);
   });
   return pdf.save();
 }
