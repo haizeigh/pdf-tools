@@ -10,6 +10,12 @@ import { SplitPDFPage } from './pages/SplitPDFPage';
 import { DeletePagesPage } from './pages/DeletePagesPage';
 import { ProtectPDFPage } from './pages/ProtectPDFPage';
 import { RotatePDFPage } from './pages/RotatePDFPage';
+import { BlogHomePage } from './pages/blog/BlogHomePage';
+import { MergePDFBlogPage } from './pages/blog/MergePDFBlogPage';
+import { CompressPDFBlogPage } from './pages/blog/CompressPDFBlogPage';
+import { JpgToPDFBlogPage } from './pages/blog/JpgToPDFBlogPage';
+import { PdfToJpgBlogPage } from './pages/blog/PdfToJpgBlogPage';
+import { SplitPDFBlogPage } from './pages/blog/SplitPDFBlogPage';
 
 function App() {
   return (
@@ -27,6 +33,12 @@ function App() {
             <Route path="/delete-pages" element={<DeletePagesPage />} />
             <Route path="/protect-pdf" element={<ProtectPDFPage />} />
             <Route path="/rotate-pdf" element={<RotatePDFPage />} />
+            <Route path="/blog" element={<BlogHomePage />} />
+            <Route path="/blog/merge-pdf" element={<MergePDFBlogPage />} />
+            <Route path="/blog/compress-pdf" element={<CompressPDFBlogPage />} />
+            <Route path="/blog/jpg-to-pdf" element={<JpgToPDFBlogPage />} />
+            <Route path="/blog/pdf-to-jpg" element={<PdfToJpgBlogPage />} />
+            <Route path="/blog/split-pdf" element={<SplitPDFBlogPage />} />
           </Routes>
         </main>
         <Footer />
