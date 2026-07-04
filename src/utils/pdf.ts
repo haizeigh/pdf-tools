@@ -1,4 +1,4 @@
-import { PDFDocument, degrees, rgb, StandardFonts, PDFPage } from 'pdf-lib';
+import { PDFDocument, degrees, rgb, StandardFonts, PDFName, PDFDict, PDFStream } from 'pdf-lib';
 
 /**
  * Merge multiple PDF files into one
@@ -260,17 +260,23 @@ export async function extractImages(file: File): Promise<{ data: Uint8Array; ext
   const results: { data: Uint8Array; ext: string; name: string }[] = [];
   const pages = pdf.getPages();
   for (let i = 0; i < pages.length; i++) {
-    const resources = (pages[i] as any).node.Resources;
-    if (!resources || !resources.XObject) continue;
-    const xObjects = resources.XObject;
-    const names = Object.keys(xObjects);
-    for (const name of names) {
-      const xObj = xObjects[name];
-      if (xObj.Subtype === 'Image') {
-        const data = xObj.getStream() as Uint8Array;
-        const filter = xObj.Filter;
-        const ext = filter === 'DCTDecode' ? 'jpg' : filter === 'FlateDecode' ? 'png' : 'bin';
-        results.push({ data, ext, name: `page${i + 1}_${name}.${ext}` });
+    const resources = (pages[i] as any).node.Resources();
+    if (!resources) continue;
+    const xobj = resources.lookupMaybe(PDFName.of('XObject'), PDFDict);
+    if (!xobj) continue;
+    const entries = xobj.entries();
+    for (const [key] of entries) {
+      try {
+        const imgStream = xobj.lookupMaybe(key, PDFStream);
+        if (!imgStream) continue;
+        const data = imgStream.contents as Uint8Array;
+        if (!data || data.length === 0) continue;
+        const isJpeg = data[0] === 0xFF && data[1] === 0xD8;
+        const isPng = data[0] === 0x89 && data[1] === 0x50;
+        const ext = isJpeg ? 'jpg' : isPng ? 'png' : 'bin';
+        results.push({ data, ext, name: `page${i + 1}_${key.encodedName.replace('/', '')}.${ext}` });
+      } catch {
+        // Skip images that can't be extracted
       }
     }
   }
