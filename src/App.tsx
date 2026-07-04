@@ -15,6 +15,7 @@ import { PageNumbersPDFPage } from './pages/PageNumbersPDFPage';
 import { CropPDFPage } from './pages/CropPDFPage';
 import { ExtractImagesPage } from './pages/ExtractImagesPage';
 import { PdfOcrPage } from './pages/PdfOcrPage';
+import { PrivacyPage } from './pages/PrivacyPage';
 import { BlogHomePage } from './pages/blog/BlogHomePage';
 import { MergePDFBlogPage } from './pages/blog/MergePDFBlogPage';
 import { CompressPDFBlogPage } from './pages/blog/CompressPDFBlogPage';
@@ -43,6 +44,7 @@ function App() {
             <Route path="/crop-pdf" element={<CropPDFPage />} />
             <Route path="/extract-images" element={<ExtractImagesPage />} />
             <Route path="/pdf-ocr" element={<PdfOcrPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
             <Route path="/blog" element={<BlogHomePage />} />
             <Route path="/blog/merge-pdf" element={<MergePDFBlogPage />} />
             <Route path="/blog/compress-pdf" element={<CompressPDFBlogPage />} />

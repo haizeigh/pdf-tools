@@ -7,6 +7,8 @@ export function Footer() {
             All processing happens in your browser. Files never leave your device.
           </p>
           <div className="flex items-center gap-4 text-sm text-surface-400">
+            <a href="/privacy" className="hover:text-brand-600 transition-colors">Privacy Policy</a>
+            <span className="text-surface-300">·</span>
             <a href="mailto:support@aixiaot.com" className="hover:text-brand-600 transition-colors">
               support@aixiaot.com
             </a>
