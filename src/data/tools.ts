@@ -1,4 +1,4 @@
-import { FileUp, FileDown, Merge, Split, Scan, FileImage, Shrink, Eraser, Lock, RotateCw } from 'lucide-react';
+import { FileUp, FileDown, Merge, Split, Scan, FileImage, Shrink, Eraser, Lock, RotateCw, Droplets, FileDigit, Crop, Image, FileText } from 'lucide-react';
 import type { Tool } from '../types';
 
 export const tools: Tool[] = [
@@ -66,10 +66,50 @@ export const tools: Tool[] = [
     path: '/rotate-pdf',
     color: 'from-orange-500 to-amber-600',
   },
+  {
+    id: 'watermark-pdf',
+    name: 'Add Watermark',
+    description: 'Add text watermark to every page',
+    icon: 'Droplets',
+    path: '/watermark-pdf',
+    color: 'from-sky-500 to-cyan-600',
+  },
+  {
+    id: 'page-numbers-pdf',
+    name: 'Add Page Numbers',
+    description: 'Number pages from any starting value',
+    icon: 'FileDigit',
+    path: '/page-numbers-pdf',
+    color: 'from-teal-500 to-emerald-600',
+  },
+  {
+    id: 'crop-pdf',
+    name: 'Crop PDF',
+    description: 'Crop pages to custom dimensions',
+    icon: 'Crop',
+    path: '/crop-pdf',
+    color: 'from-rose-500 to-pink-600',
+  },
+  {
+    id: 'extract-images',
+    name: 'Extract Images',
+    description: 'Extract embedded images from PDF',
+    icon: 'Image',
+    path: '/extract-images',
+    color: 'from-amber-500 to-yellow-600',
+  },
+  {
+    id: 'pdf-ocr',
+    name: 'PDF OCR',
+    description: 'Extract text from PDF using AI OCR',
+    icon: 'FileText',
+    path: '/pdf-ocr',
+    color: 'from-indigo-500 to-violet-600',
+  },
 ];
 
 export const iconMap: Record<string, React.ComponentType<any>> = {
-  Merge, Split, Scan, FileImage, Shrink, FileUp, FileDown, Eraser, Lock, RotateCw,
+  Merge, Split, Scan, FileImage, Shrink, FileUp, FileDown, Eraser, Lock, RotateCw, Droplets, FileDigit, Crop, Image, FileText,
 };
 
 // Google Analytics gtag

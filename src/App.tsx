@@ -10,6 +10,11 @@ import { SplitPDFPage } from './pages/SplitPDFPage';
 import { DeletePagesPage } from './pages/DeletePagesPage';
 import { ProtectPDFPage } from './pages/ProtectPDFPage';
 import { RotatePDFPage } from './pages/RotatePDFPage';
+import { WatermarkPDFPage } from './pages/WatermarkPDFPage';
+import { PageNumbersPDFPage } from './pages/PageNumbersPDFPage';
+import { CropPDFPage } from './pages/CropPDFPage';
+import { ExtractImagesPage } from './pages/ExtractImagesPage';
+import { PdfOcrPage } from './pages/PdfOcrPage';
 import { BlogHomePage } from './pages/blog/BlogHomePage';
 import { MergePDFBlogPage } from './pages/blog/MergePDFBlogPage';
 import { CompressPDFBlogPage } from './pages/blog/CompressPDFBlogPage';
@@ -33,6 +38,11 @@ function App() {
             <Route path="/delete-pages" element={<DeletePagesPage />} />
             <Route path="/protect-pdf" element={<ProtectPDFPage />} />
             <Route path="/rotate-pdf" element={<RotatePDFPage />} />
+            <Route path="/watermark-pdf" element={<WatermarkPDFPage />} />
+            <Route path="/page-numbers-pdf" element={<PageNumbersPDFPage />} />
+            <Route path="/crop-pdf" element={<CropPDFPage />} />
+            <Route path="/extract-images" element={<ExtractImagesPage />} />
+            <Route path="/pdf-ocr" element={<PdfOcrPage />} />
             <Route path="/blog" element={<BlogHomePage />} />
             <Route path="/blog/merge-pdf" element={<MergePDFBlogPage />} />
             <Route path="/blog/compress-pdf" element={<CompressPDFBlogPage />} />
