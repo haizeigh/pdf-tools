@@ -1,6 +1,8 @@
 import { tools } from '../data/tools';
 import { ToolCard } from '../components/features/ToolCard';
 import { FileText, Shield, Zap, Globe } from 'lucide-react';
+import { useLang } from '../i18n/LangContext';
+import { t } from '../i18n/translations';
 
 const features = [
   { icon: Zap, title: 'Blazing Fast', desc: 'All processing happens in your browser. No uploads, no waiting.' },
@@ -9,21 +11,22 @@ const features = [
 ];
 
 export function HomePage() {
+  const { lang } = useLang();
   return (
     <div>
       {/* Hero */}
       <section className="text-center py-12 sm:py-16">
         <div className="inline-flex items-center gap-2 bg-green-50 text-green-700 text-sm font-medium px-4 py-1.5 rounded-full mb-5">
           <Shield className="w-4 h-4" />
-          Runs in your browser · Nothing is uploaded
+          {t(lang, 'heroBadge')}
         </div>
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-surface-900 font-[family-name:var(--font-display)] leading-tight tracking-tight">
-          Free PDF tools that
+          {t(lang, 'heroHeading')}
           <br />
-          <span className="text-brand-600">respect your privacy</span>
+          <span className="text-brand-600">{t(lang, 'heroHeading2')}</span>
         </h1>
         <p className="mt-3 text-base text-surface-500 max-w-xl mx-auto">
-          Merge, compress, convert, split, delete, protect, and rotate PDFs — all locally in your browser. No uploads, no signups, no limits. Your files never leave your device.
+          {t(lang, 'heroSub')}
         </p>
       </section>
 

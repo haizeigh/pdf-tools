@@ -1,4 +1,5 @@
 import { FileText, Mail } from 'lucide-react';
+import { LanguageSelector } from '../features/LanguageSelector';
 
 export function Header() {
   return (
@@ -18,9 +19,7 @@ export function Header() {
               <Mail className="w-3.5 h-3.5" />
               support@aixiaot.com
             </a>
-            <span className="hidden sm:inline text-xs text-surface-400 bg-surface-100 px-3 py-1.5 rounded-full font-medium">
-              Free · No limits · No signup
-            </span>
+            <LanguageSelector />
           </div>
         </div>
       </div>
