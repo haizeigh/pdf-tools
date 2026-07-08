@@ -21,6 +21,7 @@ import { MergePDFBlogPage } from './pages/blog/MergePDFBlogPage';
 import { CompressPDFBlogPage } from './pages/blog/CompressPDFBlogPage';
 import { JpgToPDFBlogPage } from './pages/blog/JpgToPDFBlogPage';
 import { PdfToJpgBlogPage } from './pages/blog/PdfToJpgBlogPage';
+import { FeedbackButton } from './components/features/FeedbackButton';
 import { SplitPDFBlogPage } from './pages/blog/SplitPDFBlogPage';
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        <FeedbackButton />
       </div>
     </BrowserRouter>
   );
