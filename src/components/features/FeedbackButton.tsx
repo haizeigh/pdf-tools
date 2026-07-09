@@ -1,7 +1,7 @@
 export function FeedbackButton() {
   return (
     <a
-      href="https://docs.google.com/forms/d/e/1FAIpQLSeBTEBE7AvCrPte2QS9D3IhXmLScZAkDgsVa4uVzAW5oPrGig/viewform"
+      href="https://docs.google.com/forms/d/e/1FAIpQLSe6UemIPw29HbxaQ4BFcJ2ebA1gcIVOKKEL_9JYdBLDZioLTg/viewform"
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-4 py-2.5 rounded-full bg-brand-600 text-white text-sm font-medium shadow-lg hover:bg-brand-700 hover:shadow-xl transition-all"
