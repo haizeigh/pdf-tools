@@ -107,6 +107,20 @@ export function ProtectPDFPage() {
             />
           </div>
 
+          {mode === 'unlock' && (
+            <div>
+              <label className="block text-sm font-medium text-surface-700 mb-2">Enter Password</label>
+              <input
+                type="password"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                placeholder="Enter the PDF password"
+                className="w-full px-4 py-2.5 rounded-xl border border-surface-200 bg-white text-surface-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent"
+              />
+              <p className="text-xs text-surface-400 mt-2">🔒 Only unlock PDFs that you own or have permission to access.</p>
+            </div>
+          )}
+
           {mode === 'protect' && (
             <div>
               <label className="block text-sm font-medium text-surface-700 mb-2">Confirm Password</label>
